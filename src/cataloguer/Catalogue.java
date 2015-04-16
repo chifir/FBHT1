@@ -2,6 +2,11 @@ package cataloguer;
 
 import java.util.ArrayList;
 
+/**
+ * Catalogue is responsible for generating structure of a catalogue 
+ * and saving catalogue to the html file.
+ *
+ */
 public class Catalogue {
 	private ArtistsCatalogue artists;
 	
@@ -22,7 +27,7 @@ public class Catalogue {
 					sb.append("\ttitle: " + track.getTitle() + "\n");
 					sb.append("\tlength: " + track.getLength() + "\n");
 					sb.append("\tpath: " + track.getPath());
-					//System.out.println(sb.toString());
+					System.out.println(sb.toString());
 				}
 			}
 		}
@@ -30,8 +35,11 @@ public class Catalogue {
 	
 	public void writeHtmlCatalogue(String path, long trackCount, long dirCount){
 		HtmlCatalogue html = new HtmlCatalogue(path);
+		PlayListCatalogue pls = new PlayListCatalogue(artists, path);
+		pls.create();
+		pls.write();
 		html.createHead();
-		html.createStat(trackCount, dirCount);
+		html.createStat(trackCount, dirCount, pls.getPath());
 		String[] artistNames = artists.getArtists();
 		
 		for(String artist : artistNames){

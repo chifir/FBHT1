@@ -7,6 +7,10 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+/**
+ * HtmlCatalogue generates html-catalogue
+ *
+ */
 public class HtmlCatalogue {
 	private StringBuffer page;
 	private String path;
@@ -24,8 +28,8 @@ public class HtmlCatalogue {
 		page.append("<h1 align = \"center\"> Scanned dir : " + this.path + "</h1><br/>");
 	}
 	
-	public void createStat(long trackCount, long dirCount){
-		page.append("<h3 align = \"center\">Tracks: " + trackCount + " Directories: " + dirCount + "</h3><br/>");
+	public void createStat(long trackCount, long dirCount, String plsPath){
+		page.append("<h3 align = \"center\">Tracks: " + trackCount + " Directories: " + dirCount + " <a href=\"file://"+plsPath+"\">Playlist</a>"+ "</h3><br/>");
 	}
 	
 	public void createFoot(){

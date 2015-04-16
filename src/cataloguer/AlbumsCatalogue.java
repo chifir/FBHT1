@@ -3,6 +3,10 @@ package cataloguer;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
+/**
+ *  AlbumsCatalogue is wrapper for TreeMap<Catalogue_Name, ArrayList of tracks>
+ *
+ */
 public class AlbumsCatalogue {
 	private TreeMap<String, ArrayList<Track>> albumMap;
 
@@ -21,11 +25,21 @@ public class AlbumsCatalogue {
 			album.add(track);
 		}
 	}
-	
+
+	/**
+	 * 
+	 * @return array of album names
+	 */
 	public String[] getAlbumsName(){
 		return (String[])albumMap.keySet().toArray(new String[0]);
 	}	
 	
+	
+	/**
+	 * 
+	 * @param name
+	 * @return ArrayList of tracks for album "name"
+	 */
 	public ArrayList<Track> getAlbum(String name){
 		return albumMap.get(name);
 	}
