@@ -14,13 +14,18 @@ public class Catalogue {
 		this.artists = artists;
 	}
 	
+	/**
+	 * print catalogue to the terminal
+	 */
 	public void print(){
 		String[] artistNames = artists.getArtists();
 		
 		for(String artist : artistNames){
+			System.out.println("Artist: " + artist);
 			AlbumsCatalogue albums = artists.getAlbumsCatalogue(artist);
 			String[] albumNames = albums.getAlbumsName();
 			for(String albumName : albumNames){
+				System.out.println("Album :" + albumName);
 				ArrayList<Track> tracks = albums.getAlbum(albumName);
 				for(Track track : tracks){
 					StringBuffer sb = new StringBuffer();
@@ -33,6 +38,9 @@ public class Catalogue {
 		}
 	}
 	
+	/**
+	 * Generates structure and write html-catalogue. 
+	 */
 	public void writeHtmlCatalogue(String path, long trackCount, long dirCount){
 		HtmlCatalogue html = new HtmlCatalogue(path);
 		PlayListCatalogue pls = new PlayListCatalogue(artists, path);
