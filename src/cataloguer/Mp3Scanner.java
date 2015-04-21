@@ -134,5 +134,6 @@ public class Mp3Scanner {
 	public void saveToHtml(){
 		Catalogue cat = new Catalogue(artists);
 		cat.writeHtmlCatalogue(this.rootPath, trackCount, scannedDirs.size());
+		cat.print();
 	}
 }

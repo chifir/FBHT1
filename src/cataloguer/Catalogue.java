@@ -33,6 +33,7 @@ public class Catalogue {
 					sb.append("\tlength: " + track.getLength() + "\n");
 					sb.append("\tpath: " + track.getPath());
 					System.out.println(sb.toString());
+					//System.console().writer().println(sb);
 				}
 			}
 		}
